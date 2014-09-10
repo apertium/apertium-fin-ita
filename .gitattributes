@@ -1,0 +1,26 @@
+* text=auto !eol
+/AUTHORS -text
+/COPYING -text
+/ChangeLog -text
+/INSTALL -text
+/Makefile.am -text
+/NEWS -text
+/README -text
+/TODO -text
+/apertium-fin-ita.fin-ita.dix -text
+/apertium-fin-ita.fin-ita.lrx -text
+/apertium-fin-ita.fin-ita.rlx -text
+/apertium-fin-ita.fin-ita.t1x -text
+/apertium-fin-ita.fin-ita.t2x -text
+/apertium-fin-ita.fin-ita.t3x -text
+/apertium-fin-ita.ita-fin.lrx -text
+/apertium-fin-ita.ita-fin.rlx -text
+/apertium-fin-ita.ita-fin.t1x -text
+/apertium-fin-ita.ita-fin.t2x -text
+/apertium-fin-ita.ita-fin.t3x -text
+/configure.ac -text
+/fin-ita.prob -text
+/ita-fin.prob -text
+/modes.xml -text
+texts/tarina.fin.txt -text
+texts/tarina.ita.txt -text
