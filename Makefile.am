@@ -2,7 +2,6 @@
 ## Makefile for fin-ita
 ###############################################################################
 
-VERSION=0.1.0
 LANG1=fin
 LANG2=ita
 PREFIX1=$(LANG1)-$(LANG2)
@@ -17,9 +16,10 @@ TARGETS_TRANSFER=$(PREFIX2).t1x.bin $(PREFIX1).t1x.bin  \
 				 $(PREFIX1).t2x.bin $(PREFIX1).t3x.bin \
 				 $(PREFIX2).t2x.bin $(PREFIX2).t3x.bin \
 				 $(PREFIX1).rlx.bin $(PREFIX2).rlx.bin \
-				 $(PREFIX1).autolex.bin $(PREFIX2).autolex.bin \
-				 $(PREFIX1).mode $(PREFIX2).mode modes 
+				 $(PREFIX1).autolex.bin $(PREFIX2).autolex.bin
 TARGETS_COMMON=$(TARGETS_MONOLING) $(TARGETS_TRANSFER)
+
+@ap_include@
 
 # Use this goal for creating .deps, otherwise make -j will fail:
 .deps/.d:
@@ -34,32 +34,32 @@ TARGETS_COMMON=$(TARGETS_MONOLING) $(TARGETS_TRANSFER)
 ###############################################################################
 
 # currently we copy stuff from another dir
-$(PREFIX1).automorf.hfst: $(AP_LIB1)/$(LANG1).automorf.hfst
+$(PREFIX1).automorf.hfst: $(AP_SRC1)/$(LANG1).automorf.hfst
 	cp -v -f $< $@
 
-$(PREFIX1).automorf.bin: $(AP_LIB1)/$(LANG1).automorf.bin
+$(PREFIX1).automorf.bin: $(AP_SRC1)/$(LANG1).automorf.bin
 	cp -v -f $< $@
 
-$(PREFIX2).autogen.bin: $(AP_LIB1)/$(LANG1).autogen.bin
+$(PREFIX2).autogen.bin: $(AP_SRC1)/$(LANG1).autogen.bin
 	cp -v -f $< $@
 
-$(PREFIX2).autogen.hfst: $(AP_LIB1)/$(LANG1).autogen.hfst
+$(PREFIX2).autogen.hfst: $(AP_SRC1)/$(LANG1).autogen.hfst
 	cp -v -f $< $@
 
 ###############################################################################
 ## ita transducer
 ###############################################################################
 
-$(PREFIX2).automorf.hfst: $(AP_LIB2)/$(LANG2).automorf.hfst
+$(PREFIX2).automorf.hfst: $(AP_SRC2)/$(LANG2).automorf.hfst
 	cp -v -f $< $@
 
-$(PREFIX2).automorf.bin: $(AP_LIB2)/$(LANG2).automorf.bin
+$(PREFIX2).automorf.bin: $(AP_SRC2)/$(LANG2).automorf.bin
 	cp -v -f $< $@
 
-$(PREFIX1).autogen.bin: $(AP_LIB2)/$(LANG2).autogen.bin
+$(PREFIX1).autogen.bin: $(AP_SRC2)/$(LANG2).autogen.bin
 	cp -v -f $< $@
 
-$(PREFIX1).autogen.hfst: $(AP_LIB2)/$(LANG2).autogen.hfst
+$(PREFIX1).autogen.hfst: $(AP_SRC2)/$(LANG2).autogen.hfst
 	cp -v -f $< $@
 
 
@@ -138,20 +138,6 @@ $(PREFIX2).t3x.bin: $(BASENAME).$(PREFIX2).t3x
 #	lt-comp lr $< $@
 
 ###############################################################################
-## Translation modes
-###############################################################################
-
-modes/$(PREFIX1).mode: modes.xml
-	apertium-validate-modes modes.xml
-	apertium-gen-modes modes.xml
-	cp *.mode modes/
-
-modes/$(PREFIX2).mode: modes.xml
-	apertium-validate-modes modes.xml
-	apertium-gen-modes modes.xml
-	cp *.mode modes/
-
-###############################################################################
 ## Installation stuff
 ###############################################################################
 
@@ -162,7 +148,6 @@ EXTRA_DIST=$(PREFIX1).prob $(PREFIX2).prob \
            $(BASENAME).$(PREFIX2).t1x $(BASENAME).$(PREFIX2).t2x $(BASENAME).$(PREFIX2).t3x \
            modes.xml
 
-apertium_fin_itamodesdir=$(prefix)/share/apertium/modes/
 apertium_fin_itadir=$(prefix)/share/apertium/$(BASENAME)/
 
 apertium_fin_ita_DATA=$(PREFIX1).autobil.bin $(PREFIX2).autobil.bin \
@@ -182,15 +167,7 @@ apertium_fin_ita_DATA=$(PREFIX1).autobil.bin $(PREFIX2).autobil.bin \
 noinst_DATA=modes/$(PREFIX1).mode modes/$(PREFIX2).mode
 
 
-install-data-local:
-	mv modes modes~
-	$(prefix)/bin/apertium-gen-modes modes.xml $(BASENAME)
-	rm -rf modes
-	mv modes~ modes
-	test -d $(DESTDIR)$(apertium_fin_itamodesdir) || mkdir $(DESTDIR)$(apertium_fin_itamodesdir)
-	$(INSTALL_DATA) $(PREFIX1).mode $(DESTDIR)$(apertium_fin_itamodesdir)
-	rm $(PREFIX1).mode
-	rm $(PREFIX2).mode
+install-data-local: install-modes
 	$(INSTALL_DATA) $(BASENAME).$(PREFIX1).t1x $(DESTDIR)$(apertium_fin_itadir)
 	$(INSTALL_DATA) $(BASENAME).$(PREFIX2).t1x $(DESTDIR)$(apertium_fin_itadir)
 	$(INSTALL_DATA) $(BASENAME).$(PREFIX1).t2x $(DESTDIR)$(apertium_fin_itadir)
