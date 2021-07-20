@@ -1,0 +1,10 @@
+{
+    "fin-ita": {
+        "input": "fin-ita-input.txt",
+        "mode": "fin-ita"
+    },
+    "ita-fin": {
+        "input": "ita-fin-input.txt",
+        "mode": "ita-fin"
+    }
+}

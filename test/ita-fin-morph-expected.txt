@@ -1,0 +1,18 @@
+[--XMyvy54M7r#0] ^quest'/questo<det><dem><mf><sg>$
+[/--XMyvy54M7r]
+[1PhdNnV8EvDG#0] ^–/–<guio>$
+[/1PhdNnV8EvDG]
+[LRunwvJ8cuyg#0] ^unʼ/un<det><ind><mf><sg>/un<det><ind><f><sg>$
+[/LRunwvJ8cuyg]
+[Muuxq8wcYBzr#0] ^(/(<lpar>$
+[/Muuxq8wcYBzr]
+[RhprNrOvsovf#0] ^4%/4<num><percent>$
+[/RhprNrOvsovf]
+[hHJITCp7uypP#0] ^oltre allʼ/oltre a<pr>+il<det><def><mf><sg>$
+[/hHJITCp7uypP]
+[lmx8rIyD9HJd#0] ^lʼ/il<det><def><mf><sg>/lo<prn><pro><p3><m><sg>/lo<prn><pro><p3><f><sg>$
+[/lmx8rIyD9HJd]
+[q132Jbx229Th#0] ^.../...<sent>$
+[/q132Jbx229Th]
+[sOmmuZBPmwvx#0] ^mʼ/mi<prn><pro><p1><mf><sg>$
+[/sOmmuZBPmwvx]

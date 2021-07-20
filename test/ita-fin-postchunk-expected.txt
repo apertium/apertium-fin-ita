@@ -1,0 +1,18 @@
+[--XMyvy54M7r#0] ^@questo<det><dem><mf><sg>$
+[/--XMyvy54M7r]
+[1PhdNnV8EvDG#0] ^--<guio>$
+[/1PhdNnV8EvDG]
+[LRunwvJ8cuyg#0] ^@un<det><ind><mf><sg>$
+[/LRunwvJ8cuyg]
+[Muuxq8wcYBzr#0] ^(<lpar>$
+[/Muuxq8wcYBzr]
+[RhprNrOvsovf#0] ^4<num><percent>$
+[/RhprNrOvsovf]
+[hHJITCp7uypP#0] ^@oltre a<pr>$ ^@il<det><def><mf><sg>$
+[/hHJITCp7uypP]
+[lmx8rIyD9HJd#0] ^@il<det><def><mf><sg>$
+[/lmx8rIyD9HJd]
+[q132Jbx229Th#0] ^...<sent>$
+[/q132Jbx229Th]
+[sOmmuZBPmwvx#0] ^@mi<prn><pro><p1><mf><sg>$
+[/sOmmuZBPmwvx]
